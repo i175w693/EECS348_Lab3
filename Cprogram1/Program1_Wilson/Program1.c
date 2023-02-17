@@ -164,82 +164,32 @@ void moving_avg(float array[ROWS])
     }
 }
 
+
 void high_to_low(float array[ROWS])
 {
-    char *months[100][MONTHS] = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
+    char *months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
      "October", "November", "December"};
-    char *min_month;
-    char *two_month;
-    char *three_month;
-    char *four_month;
-    char *five_month;
-    char *six_month;
-    char *seven_month;
-    char *eight_month;
-    char *nine_month;
-    char *ten_month;
-    char *eleven_month;
-    char *max_month;
 
-    float min = 100000;
-    float two = 0;
-    float three = 0;
-    float four = 0;
-    float five = 0;
-    float six = 0;
-    float seven = 0;
-    float eight = 0;
-    float nine = 0;
-    float ten = 0;
-    float eleven = 0;
-    float max = 0;
+    for (int i=0; i<MONTHS; i++) {
+        for (int j=0; j<MONTHS-i-1; j++) {
+            if (array[j] < array[j+1]) {
+                float swap = array[j];
+                array[j] = array[j+1];
+                array[j+1] = swap;
+                char *temp = months[j];
+                months[j] = months[j+1];
+                months[j+1] = temp;
+            }
+        }
+    }
 
-    for (int i = 0; i < ROWS; i++)                     
-	{
-		for (int j = 0; j < ROWS; j++)             
-		{
-			if (array[j] < array[i])                
-			{
-				float temp = array[i];         
-				array[i] = array[j];            
-				array[j] = temp; 
-                
-                int temp2 = *months[i];
-                *months[i] = *months[j];
-                *months[j] = temp2;
-			}
-		}
-	}
-  
-    printf("\nSales Report (Highest to Lowest):");
-    printf("\nMonth            Sales\n");
-    printf("%-15s", "December");
-    printf("$%.2f\n", array[0]);
-    printf("%-15s", "November" );
-    printf("$%.2f\n", array[1]);
-    printf("%-15s", "July" );
-    printf("$%.2f\n", array[2]);
-    printf("%-15s", "October");
-    printf("$%.2f\n", array[3]);
-    printf("%-15s", "September");
-    printf("$%.2f\n", array[4]);
-    printf("%-15s", "June");
-    printf("$%.2f\n", array[5]);
-    printf("%-15s", "August");
-    printf("$%.2f\n", array[6]);
-    printf("%-15s", "March");
-    printf("$%.2f\n", array[7]);
-    printf("%-15s", "February");
-    printf("$%.2f\n", array[8]);
-    printf("%-15s", "May");
-    printf("$%.2f\n", array[9]);
-    printf("%-15s", "April");
-    printf("$%.2f\n", array[10]);
-    printf("%-15s", "January");
-    printf("$%.2f\n", array[11]);
+    printf("Sales Report (Highest to Lowest):\n\n");
+    printf("%-15s%-10s\n", "Month", "Sales");
+    for (int i = 0; i < MONTHS; i++)
+    {
+        printf("%-15s$%-10.2f\n", months[i], array[i]);
+    }
 }
-
-
 
 
 
