@@ -2,9 +2,9 @@
 
 Program 1 Output:
 
+![Program1out](https://user-images.githubusercontent.com/123773539/219532968-fff10d44-66f6-40c2-9164-b58317106392.png)
+![Program2out](https://user-images.githubusercontent.com/123773539/219532978-1f61b586-3315-4caf-b15d-c98424e988f2.png)
 
-![lab_1_1](https://user-images.githubusercontent.com/123773539/218275883-27d1a276-5703-406a-a123-37e5087991be.png)
-![lab_1_2](https://user-images.githubusercontent.com/123773539/218275900-45feb341-6b9e-4507-99bc-2e3970a4cfa2.png)
 
 
 Program 2 Output:
